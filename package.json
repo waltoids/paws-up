@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "server.js",
-    "dev": "concurrently \"heroku local\" \"npm run start --prefix ./client\""
+    "dev": "concurrently \"heroku local\" \"npm run start --prefix ./client\"",
+    "postinstall": "npm install && npm install --prefix ./client && npm run build --prefix ./client"
   },
   "repository": {
     "type": "git",
