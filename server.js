@@ -20,10 +20,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/paws_up", {
 // app.use(express.static(path.join(__dirname, '..', 'client/build')));
 
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
 //socket.io connection
 io.on('connection', (socket) => {
   Chat
