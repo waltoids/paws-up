@@ -24,7 +24,7 @@ class Chat extends React.Component {
     this.socket = io(config[process.env.NODE_ENV].endpoint);
 
     // Load the last 10 messages in the window.
-    this.socket.on('init', (msg) => {
+    this.socket.on('inital', (msg) => {
       let msgReversed = msg.reverse();
       this.setState((state) => ({
         chat: [...state.chat, ...msgReversed],
