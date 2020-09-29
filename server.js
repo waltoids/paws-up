@@ -45,6 +45,8 @@ io.on('connection', (socket) => {
     });
   });
 
+  app.get('/')
+
 // Start the API server
 http.listen(PORT, function() {
   console.log(`🌎  ==>Server now listening on PORT ${PORT}!`);
