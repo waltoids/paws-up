@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   Chat
     .find()
     .sort({createdAt: -1})
-    .limit(20)
+    .limit(10)
     .exec((err, messages) =>{
       if (err) return console.error(err);
 

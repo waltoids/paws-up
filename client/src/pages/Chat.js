@@ -32,7 +32,7 @@ class Chat extends React.Component {
     });
 
     // Update the chat if a new message is broadcasted.
-    this.socket.on('push', (msg) => {
+    this.socket.on('send', (msg) => {
       this.setState((state) => ({
         chat: [...state.chat, msg],
       }), this.scrollToBottom);
