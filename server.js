@@ -17,12 +17,13 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/paws_up", {
   useNewUrlParser: true,
 });
 
-// app.use(express.static(path.join(__dirname, '..', 'client/build')));
 
-
+const root = require('path').join(__dirname, 'client', 'build')
+app.use(express.static(root));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile('index.html', { root });
 });
+
 //socket.io connection
 io.on('connection', (socket) => {
   Chat
