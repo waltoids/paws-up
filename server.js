@@ -6,6 +6,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http)
 const path = require('path');
 
+
 const Chat = require('./models/chat')
 
 const PORT = process.env.PORT || 3001;
@@ -16,7 +17,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/paws_up", {
   useNewUrlParser: true,
 });
 
-app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'client/build')));
+
+app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
 
 //socket.io connection
 io.on('connection', (socket) => {
@@ -45,7 +48,6 @@ io.on('connection', (socket) => {
     });
   });
 
-  app.get('/')
 
 // Start the API server
 http.listen(PORT, function() {
